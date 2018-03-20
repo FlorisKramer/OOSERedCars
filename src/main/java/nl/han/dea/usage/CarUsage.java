@@ -1,5 +1,6 @@
 package nl.han.dea.usage;
 
+import nl.han.dea.utils.PaymentType;
 import nl.han.dea.utils.SubscriptionType;
 
 public class CarUsage {
@@ -9,7 +10,7 @@ public class CarUsage {
     private int weeks;
     private int kms;
 
-    public CarUsage(SubscriptionType type, int amount) {
+    public CarUsage(PaymentType type,int amount) {
         switch (type){
             case PER_DAY:
                 this.days = amount;
@@ -29,7 +30,7 @@ public class CarUsage {
         }
     }
 
-    public int getCarUsage(SubscriptionType type){
+    public int getCarUsage(PaymentType type){
         switch (type){
             case PER_DAY:
                 return days;
@@ -43,5 +44,13 @@ public class CarUsage {
                 return weekends;
         }
         return 0;
+    }
+
+    public void setKms(int kms) {
+        this.kms = kms;
+    }
+
+    public int getKms() {
+        return kms;
     }
 }
