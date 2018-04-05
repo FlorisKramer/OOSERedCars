@@ -6,6 +6,7 @@ import nl.han.dea.subscriptions.Subscription;
 public class Reservation {
     Car car;
     Customer customer;
+    Usage usage;
 
     public Car getCar() {
         return car;
@@ -27,18 +28,26 @@ public class Reservation {
 
         Subscription subscription = SubscriptionFactory.getSubscription(customer.getSubscription(),car.getCarType());
 
-        switch (car.getPaymentType()){
+        switch (usage.getPaymentType()){
             case PER_DAY:
-                return car.getCarUsage() * subscription.getPerDay() + car.getKms() * subscription.getPerKMS();
+                return usage.getCarUsage() * subscription.getPerDay() + usage.getKms() * subscription.getPerKMS();
             case PER_HOUR:
-                return car.getCarUsage() * subscription.getPerHour() + car.getKms() * subscription.getPerKMS();
+                return usage.getCarUsage() * subscription.getPerHour() + usage.getKms() * subscription.getPerKMS();
             case PER_KM:
-                return car.getCarUsage() * subscription.getPerKMS() + car.getKms() * subscription.getPerKMS();
+                return usage.getCarUsage() * subscription.getPerKMS() + usage.getKms() * subscription.getPerKMS();
             case PER_WEEK:
-                return car.getCarUsage() * subscription.getPerWeek() + car.getKms() * subscription.getPerKMS();
+                return usage.getCarUsage() * subscription.getPerWeek() + usage.getKms() * subscription.getPerKMS();
             case PER_WEEKEND:
-                return car.getCarUsage() * subscription.getPerWeekend() + car.getKms() * subscription.getPerKMS();
+                return usage.getCarUsage() * subscription.getPerWeekend() + usage.getKms() * subscription.getPerKMS();
         }
         return 0;
+    }
+
+    public Usage getUsage() {
+        return usage;
+    }
+
+    public void setUsage(Usage usage) {
+        this.usage = usage;
     }
 }

@@ -4,57 +4,11 @@ import nl.han.dea.utils.CarType;
 import nl.han.dea.utils.PaymentType;
 
 public class Car {
-    private int hours;
-    private int days;
-    private int weekends;
-    private int weeks;
-    private int kms;
+
     private CarType carType;
-    private PaymentType type;
 
-    public void setCarUsage(int amount) {
-        switch (type){
-            case PER_DAY:
-                this.days = amount;
-                break;
-            case PER_HOUR:
-                this.hours = amount;
-                break;
-            case PER_KM:
-                this.kms = amount;
-                break;
-            case PER_WEEK:
-                this.weeks = amount;
-                break;
-            case PER_WEEKEND:
-                this.weekends = amount;
-                break;
-        }
-    }
 
-    public int getCarUsage(){
-        switch (type){
-            case PER_DAY:
-                return days;
-            case PER_HOUR:
-                return hours;
-            case PER_KM:
-                return kms;
-            case PER_WEEK:
-                return weeks;
-            case PER_WEEKEND:
-                return weekends;
-        }
-        return 0;
-    }
 
-    public void setKms(int kms) {
-        this.kms = kms;
-    }
-
-    public int getKms() {
-        return kms;
-    }
 
     public CarType getCarType() {
         return carType;
@@ -64,11 +18,5 @@ public class Car {
         this.carType = carType;
     }
 
-    public PaymentType getPaymentType() {
-        return type;
-    }
 
-    public void setPaymentType(PaymentType type) {
-        this.type = type;
-    }
 }

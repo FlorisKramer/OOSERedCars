@@ -35,6 +35,7 @@ public class App {
 
 
         app.getReservationController().createReservation(subscriptionType,carType,paymentType,amountUsed,kmsDriven);
+
         int paymentAmount = app.getReservationController().getReservation().calculatePaymentAmount();
         System.out.println("Total price : "+((double) paymentAmount)/100);
 
