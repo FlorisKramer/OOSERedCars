@@ -1,16 +1,18 @@
-package nl.han.dea.usage;
+package nl.han.dea.domains;
 
+import nl.han.dea.utils.CarType;
 import nl.han.dea.utils.PaymentType;
-import nl.han.dea.utils.SubscriptionType;
 
-public class CarUsage {
+public class Car {
     private int hours;
     private int days;
     private int weekends;
     private int weeks;
     private int kms;
+    private CarType carType;
+    private PaymentType type;
 
-    public CarUsage(PaymentType type,int amount) {
+    public void setCarUsage(int amount) {
         switch (type){
             case PER_DAY:
                 this.days = amount;
@@ -30,7 +32,7 @@ public class CarUsage {
         }
     }
 
-    public int getCarUsage(PaymentType type){
+    public int getCarUsage(){
         switch (type){
             case PER_DAY:
                 return days;
@@ -52,5 +54,21 @@ public class CarUsage {
 
     public int getKms() {
         return kms;
+    }
+
+    public CarType getCarType() {
+        return carType;
+    }
+
+    public void setCarType(CarType carType) {
+        this.carType = carType;
+    }
+
+    public PaymentType getPaymentType() {
+        return type;
+    }
+
+    public void setPaymentType(PaymentType type) {
+        this.type = type;
     }
 }
